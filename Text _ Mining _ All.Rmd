@@ -18,7 +18,7 @@ df1 <- read.csv("words.csv")
 col <- colnames(df1)[2:21]
 df1 $text <- apply(df1 [,col], 1, paste, collapse = " ")
 df2 <- df1[,c(1,22)]
-head(df2)
+# head(df2)
 
 # formatting
 
@@ -38,15 +38,15 @@ corpus <- tm_map(corpus, stemDocument)
 clean <- tm_map(corpus, removeWords, stopwords('english'))
 # stopwords('english')
 clean <- tm_map(clean, removeWords, c('veri'))
-inspect(corpus[1:3])
+# inspect(corpus[1:3])
 
 # Inspect word frequency 
 freq <- TermDocumentMatrix(clean)
 freqset <- as.data.frame(as.matrix(freq))
 write.table(freqset, file='wordfreq_all.csv', sep = ',')
-freq
+# freq
 
-findFreqTerms(freq,lowfreq = 5)
+# findFreqTerms(freq,lowfreq = 5)
 
 # delete words appears less than 0.05 % frequency
 
@@ -54,8 +54,8 @@ word <- removeSparseTerms(freq, 0.995)
 word1 <- as.data.frame(as.matrix(word))
 rownames(word1)<-make.names(rownames(word))
 word <- as.matrix(word1)
-head(word1)
-dim(word1)
+# head(word1)
+# dim(word1)
 write.table(word1, file='wordfreq_trimmed.csv', sep=',')
 
 ```
