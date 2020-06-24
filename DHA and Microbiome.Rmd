@@ -1,0 +1,46 @@
+---
+title: "DHA and Microbiome"
+author: "Xi Fang"
+date: "6/24/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## This mini-project provides visualization of the microbiome (genus level) influenced by DHA intake in human subjects.
+
+```{r data}
+d <- read.csv("DHA and Microbiome.csv")
+library(tm)
+library(quanteda)
+
+dc <- corpus(d, docid_field = "ID",
+                 text_field = "Text",
+                 unique_docnames = TRUE)
+dc <- Corpus(VectorSource(dc))
+
+# check word frequency
+fdc <- TermDocumentMatrix(dc)
+fdcf <- as.data.frame(as.matrix(fdc))
+
+f2 <- rowSums(fdcf)
+par(mar=c(8, 4.1, 4.1, 2.1))
+barplot(f2,
+        las=2,
+        col = rainbow(50))
+
+
+library(wordcloud)
+f3 <- sort(rowSums(fdcf), decreasing = TRUE)
+
+wordcloud(words = names(f3),
+          freq = f3,
+          max.words = 60,
+          random.order = F,
+          min.freq = 1,
+          colors = brewer.pal (8, 'Dark2'), scale = c(3, 0.3))
+
+```
+
