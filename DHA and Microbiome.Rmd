@@ -34,13 +34,15 @@ barplot(f2,
 
 library(wordcloud)
 f3 <- sort(rowSums(fdcf), decreasing = TRUE)
-
+par(mar=c(0.1, 0.1, 0.1, 0.1))
 wordcloud(words = names(f3),
           freq = f3,
           max.words = 60,
           random.order = F,
           min.freq = 1,
-          colors = brewer.pal (8, 'Dark2'), scale = c(3, 0.3))
+          colors = brewer.pal (8, 'Dark2'), scale = c(2, 0.05) )
+
+
 
 ```
 
