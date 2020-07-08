@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## This mini-project provides visualization of the microbiome (genus level) influenced by DHA intake in human subjects.
 
 ```{r data}
-d <- read.csv("DHA and Microbiome.csv")
+d <- read.csv("DHA and Microbiome.csv")  
 library(tm)
 library(quanteda)
 
