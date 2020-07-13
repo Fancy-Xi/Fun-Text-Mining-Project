@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 d <- read.csv("DHA and Microbiome.csv")  
 library(tm)
 library(quanteda) 
-
+  
 dc <- corpus(d, docid_field = "ID",
                  text_field = "Text",
                  unique_docnames = TRUE)
