@@ -35,7 +35,7 @@ barplot(f2,
 library(wordcloud)
 f3 <- sort(rowSums(fdcf), decreasing = TRUE)
 par(mar=c(0.1, 0.1, 0.1, 0.1))
-wordcloud(words = names(f3),
+wordcloud(words = names(f3), 
           freq = f3,
           max.words = 60,
           random.order = F,
