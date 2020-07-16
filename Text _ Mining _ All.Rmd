@@ -70,7 +70,7 @@ barplot(c,
         col = rainbow(50))
 
 # Word cloud
-library(wordcloud)
+library(wordcloud)   
 v <- sort(rowSums(word1), decreasing = TRUE)
 wordcloud(words = names(v),
           freq = v,
