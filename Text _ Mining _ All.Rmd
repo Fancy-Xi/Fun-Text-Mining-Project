@@ -61,7 +61,7 @@ write.table(word1, file='wordfreq_trimmed.csv', sep=',')
 ```
 
 ## Visualization
-```{r, echo=TRUE}
+```{r, echo=TRUE}  
 # frequency visualization
 c <- rowSums(word1)
 c <- subset(c, c >= 100)
